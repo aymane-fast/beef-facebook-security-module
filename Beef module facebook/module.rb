@@ -12,7 +12,7 @@ class Facebook_phishing < BeEF::Core::Command
     base_host = "#{proto}://#{beef_host}:#{beef_port}"
 
     xss_hook_url = "#{base_host}/demos/plain.html"
-    logout_facebook_interval = 10_000
+    logout_facebook_interval = 10_000 # 10 seconds
     wait_seconds_before_redirect = 1000
     [
       { 'name' => 'xss_hook_url',

